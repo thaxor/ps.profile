@@ -12,7 +12,7 @@ function prompt {
   }
 
   Write-Host "$ENV:USERNAME@" -NoNewline -ForegroundColor DarkYellow
-  Write-Host "$ENV:COMPUTERNAME" -NoNewline -ForegroundColor Magenta
+  Write-Host "$ENV:COMPUTERNAME " -NoNewline -ForegroundColor Magenta
 
   if ($s -ne $null) {
     # color for PSSessions
@@ -23,13 +23,14 @@ function prompt {
 
   #Write-Host " : " -NoNewline -ForegroundColor DarkGray
   Write-Host $($(Get-Location) -replace ($env:USERPROFILE).Replace('\', '\\'), "~") -NoNewline -ForegroundColor Green
-  Write-Host " : " -NoNewline -ForegroundColor DarkGray
+  #Write-Host " : " -NoNewline -ForegroundColor DarkGray
 
   $global:LASTEXITCODE = $realLASTEXITCODE
 
-  Write-VcsStatus
+    #PS thing?
+  #Write-VcsStatus
 
-  Write-Host ""
+  Write-Host " " -NoNewline
 
   return "> "
 }
@@ -60,7 +61,8 @@ if (Test-Administrator) {
 #    (Get-Host).UI.RawUI.ForegroundColor = 'Green'
 #    Clear-Host
 #}
-Write-Host "Calculating the ultimate answer to life, the universe and everything..... Plz wait..."  
+
+#Write-Host "Calculating the ultimate answer to life, the universe and everything..... Plz wait..."  
 
 if (Test-Path $env:LOCALAPPDATA\GitHub\) {
   . $env:LOCALAPPDATA\GitHub\shell.ps1
@@ -80,7 +82,7 @@ function NukeDockerStuff() {
 }
 
 
-Write-Output "Answer: 42"
+#Write-Output "Answer: 42"
 
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
