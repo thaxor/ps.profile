@@ -48,7 +48,7 @@ function Start-Administrator {
 
 #aliases
 Set-Alias elevate Start-Administrator #starts a new session as admin, as close to sudo you can get.
-Set-Alias code code-insiders.cmd #aliases the insiders version of code cli
+#Set-Alias code code-insiders.cmd #aliases the insiders version of code cli
 
 if (Test-Administrator) {
   (Get-Host).UI.RawUI.BackgroundColor = "DarkRed"
